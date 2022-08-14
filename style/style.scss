@@ -1,9 +1,573 @@
+$colorTextPink: #F6EEFF;
+$colorTextViolet: #510F4E;
+$colorTextWhite: #FFFFFF;
+$colorBorder: #848484;
+$colorBorderAvatar: #F6EEFF;
+$textShadowViolet: #2F144F;
+$textShadowGray: rgba(0, 0, 0, 0.25);
+$btnBackground: rgba(246, 238, 255, 0.65);
+$btnBackgroundHover: rgba(224, 196, 255, 0.65);
+$btnBackgroundActive: rgba(246, 238, 255, 0.65);
+$inputBackground: rgba(255, 255, 255, 0.65);
+$inputBackgroundActive: #FFFFFF;
+$elementsBackground: rgba(246, 238, 255, 0.65);
+$elementsShadow: rgba(0, 0, 0, 0.25);
+
+@mixin textPinkProperties {
+    color: $colorTextPink;
+    text-shadow: 
+        1px 0 1px $colorBorder, 
+        0 1px 1px $colorBorder, 
+        -1px 0 1px $colorBorder, 
+        0 -1px 1px $colorBorder,
+        0px 4px 4px $textShadowViolet;
+}
+
+@mixin textWhiteProperties {
+    color: $colorTextWhite;
+    text-shadow: 
+        1px 0 1px $colorBorder, 
+        0 1px 1px $colorBorder, 
+        -1px 0 1px $colorBorder, 
+        0 -1px 1px $colorBorder,
+        0px 4px 4px $textShadowGray;
+}
+
+@mixin btnProperties {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $colorBorder;
+    background-color: $btnBackground;
+    transition: .3s linear;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $btnBackgroundHover;
+    }
+
+    &:active {
+        background-color: $btnBackgroundActive;
+    }
+}
+
+@mixin elementsProperties {
+    background-color: $elementsBackground;
+    border: 1px solid $colorBorder;
+    border-radius: 35px;
+    box-shadow: 0px 4px 4px $elementsShadow;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.check {
-    color: red;
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../media/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: -2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(255, 239, 197, 0.62) 0%, rgba(255, 208, 138, 0.65) 43.13%, rgba(224, 102, 64, 0.6) 84.49%, rgba(179, 65, 1, 0.63) 107.12%);
+        /*background: linear-gradient(180deg, rgba(255, 197, 197, 0.62) 0%, rgba(255, 138, 180, 0.61) 39.13%, rgba(184, 53, 205, 0.65) 75.88%, rgba(48, 8, 72, 0.57) 100%); градиент для ночи*/
+    }
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    padding: 15px 0;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__clock {
+        @include textPinkProperties();
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 55px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 100px;
+    }
+
+    &__btn {
+        @include btnProperties();
+        padding: 6px 17.5px;
+        border-radius: 35px;
+    }
+
+    &__img {
+        pointer-events: none;
+    }
+}
+
+.search {
+    width: 55%;
+    display: flex;
+    border-radius: 35px;
+    box-shadow: 0px 4px 4px $elementsShadow;
+    margin-bottom: 20px;
+
+    &__input {
+        width: calc(100% - 65px);
+        border: 1px solid $colorBorder;
+        border-radius: 35px 0 0 35px;
+        padding: 0 15px;
+        background-color: $inputBackground;
+        color: $colorTextViolet;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        transition: .3s linear;
+
+        &:hover {
+            border: 1px solid $colorTextViolet;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid $colorTextViolet;
+            background-color: $inputBackgroundActive;
+        }
+    }
+
+    &__btn {
+        @include btnProperties();
+        padding: 6px 13.5px;
+        border-radius: 0 35px 35px 0;
+        border-left: none;
+    }
+
+    &__img {
+        pointer-events: none;
+    }
+}
+
+.location {
+    @include textPinkProperties();
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 76px;
+    margin-bottom: 10px;
+}
+
+.weather {
+    display: grid;
+    grid-template-columns: 55% 43%;
+    justify-content: space-between;
+}
+
+.today {
+    @include elementsProperties();
+    padding: 16px 30px;
+
+    &__day {
+        color: $colorTextViolet;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 55px;
+    }
+
+    &__block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__temperature {
+        @include textWhiteProperties();
+        font-weight: 600;
+        font-size: 128px;
+        line-height: 156px;
+    }
+
+    &__pic {
+        width: 200px;
+        height: 240px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: drop-shadow(0px 4px 4px $elementsShadow);
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &__icon {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 3px;
+    }
+
+    &__thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: drop-shadow(0px 4px 4px $elementsShadow);
+    }
+
+    &__value {
+        color: $colorTextViolet;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+    }
+}
+
+.nextdays {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+
+    &__day {
+        @include elementsProperties();
+        padding: 30px 0 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        color: $colorTextViolet;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    &__temperature {
+        @include textWhiteProperties();
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 78px;
+    }
+
+    &__pic {
+        width: 100px;
+        height: 120px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: drop-shadow(0px 4px 4px $elementsShadow);
+    }
+}
+
+.footer {
+    padding: 20px 0;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+    }
+
+    &__pic {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 2px solid $colorBorderAvatar;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__name {
+        @include textPinkProperties();
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 10px
+    }
+
+    &__position {
+        @include textPinkProperties();
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        padding: 30px 0;
+    
+        &__clock {
+            font-size: 36px;
+            line-height: 44px;
+            column-gap: 60px;
+        }
+
+        &__btn {
+            padding: 1px 15px;
+            border-radius: 20px;
+        }
+    
+        &__img {
+            transform: scale(0.7);
+        }
+    }
+
+    .search {
+        border-radius: 20px;
+        margin-bottom: 15px;
+    
+        &__input {
+            width: calc(100% - 60px);
+            border-radius: 20px 0 0 20px;
+            padding: 0 10px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    
+        &__btn {
+            padding: 1px 11.5px;
+            border-radius: 0 20px 20px 0;
+        }
+    
+        &__img {
+            transform: scale(0.7);
+        }
+    }
+
+    .location {
+        font-size: 48px;
+        line-height: 59px;
+        margin-bottom: 15px;
+    }
+
+    .today {
+        border-radius: 30px;
+        padding: 10px 15px;
+    
+        &__day {
+            font-size: 36px;
+            line-height: 44px;
+        }
+    
+        &__temperature {
+            font-size: 96px;
+            line-height: 117px;
+        }
+    
+        &__pic {
+            width: 160px;
+            height: 192px;
+        }
+    
+        &__icon {
+            width: 38px;
+            height: 38px;
+        }
+    
+        &__value {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    .nextdays {
+        column-gap: 10px;
+    
+        &__day {
+            border-radius: 30px;
+            padding: 20px 0 35px;
+        }
+    
+        &__title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    
+        &__temperature {
+            font-size: 48px;
+            line-height: 59px;
+        }
+    
+        &__pic {
+            width: 80px;
+            height: 96px;
+        }
+    }
+
+    .footer {
+        padding: 40px 0;
+    
+        &__pic {
+            width: 60px;
+            height: 60px;
+        }
+    
+        &__name {
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 10px
+        }
+    
+        &__position {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        padding: 10px 0;
+    
+        &__clock {
+            font-size: 22px;
+            line-height: 27px;
+            column-gap: 15px;
+        }
+    }
+
+    .search {
+        width: 100%;
+        margin-bottom: 10px;
+    
+        &__input {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    .location {
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 15px;
+    }
+
+    .weather {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+
+    .today {
+        border-radius: 20px;
+        padding: 5px 10px;
+    
+        &__day {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    
+        &__block {
+            justify-content: space-around;
+        }
+    
+        &__temperature {
+            font-size: 64px;
+            line-height: 78px;
+        }
+    
+        &__pic {
+            width: 90px;
+            height: 108px;
+        }
+    
+        &__icon {
+            width: 30px;
+            height: 30px;
+        }
+    
+        &__value {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    .nextdays {
+        column-gap: 8px;
+    
+        &__day {
+            border-radius: 20px;
+            padding: 10px 0;
+        }
+    
+        &__title {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    
+        &__temperature {
+            font-size: 36px;
+            line-height: 44px;
+        }
+    
+        &__pic {
+            width: 60px;
+            height: 72px;
+        }
+    }
+
+    .footer {
+        padding: 15px 0;
+    
+        &__container {
+            column-gap: 10px;
+        }
+    
+        &__pic {
+            width: 40px;
+            height: 40px;
+        }
+    
+        &__name {
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 5px
+        }
+    
+        &__position {
+            font-size: 15px;
+            line-height: 18px;
+        }
+    }
+}
+
+@media (max-height: 615px) {
+    body {
+        width: 100%;
+        height: 100%;
+    }
 }

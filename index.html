@@ -4,12 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
     <title>Weather Forecast</title>
 </head>
 <body>
-    <p class="check">check</p>
+    <header class="header">
+        <div class="container header__container">
+            <p class="header__clock">
+                <span class="header__time">11:00</span>
+                <span class="header__date">9 Aug 2022</span>
+            </p>
+            <button class="header__btn">
+                <object class="header__img" data="media/refresh-img.svg" type="image/svg+xml"></object>
+            </button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container main__container">
+            <div class="search">
+                <input class="search__input" stype="text" placeholder="Enter city or country name">
+                <button class="search__btn">
+                    <object class="search__img" data="media/search-img.svg" type="image/svg+xml"></object>
+                </button>
+            </div>
+            <h1 class="location">Salihorsk, Belarus</h1>
+            <div class="weather">
+                <article class="today">
+                    <h2 class="today__day">Tuesday</h2>
+                    <div class="today__block">
+                        <p class="today__temperature">22°</p>
+                        <div class="today__pic">
+                            <object class="today__img" data="media/weather-tstorm.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                    <div class="today__info">
+                        <div class="today__wrap">
+                            <div class="today__icon">
+                                <object class="today__thumb" data="media/icon-wind.svg" type="image/svg+xml"></object>
+                            </div>
+                            <p class="today__value">10km/h</p>
+                        </div>
+                        <div class="today__wrap">
+                            <div class="today__icon">
+                                <object class="today__thumb" data="media/icon-humidity.svg" type="image/svg+xml"></object>
+                            </div>
+                            <p class="today__value">83%</p>
+                        </div>
+                        <div class="today__wrap">
+                            <div class="today__icon">
+                                <object class="today__thumb" data="media/icon-pressure.svg" type="image/svg+xml"></object>
+                            </div>
+                            <p class="today__value">1024mb</p>
+                        </div>
+                    </div>
+                </article>
+                <div class="nextdays">
+                    <article class="nextdays__day">
+                        <h2 class="nextdays__title">Wed 10</h2>
+                        <p class="nextdays__temperature">19°</p>
+                        <div class="nextdays__pic">
+                            <object class="nextdays__img" data="media/weather-mcloudy.svg" type="image/svg+xml"></object>
+                        </div>
+                    </article>
+                    <article class="nextdays__day">
+                        <h2 class="nextdays__title">Thu 11</h2>
+                        <p class="nextdays__temperature">25°</p>
+                        <div class="nextdays__pic">
+                            <object class="nextdays__img" data="media/weather-pcloudy.svg" type="image/svg+xml"></object>
+                        </div>
+                    </article>
+                    <article class="nextdays__day">
+                        <h2 class="nextdays__title">Fri 12</h2>
+                        <p class="nextdays__temperature">26°</p>
+                        <div class="nextdays__pic">
+                            <object class="nextdays__img" data="media/weather-sunny.svg" type="image/svg+xml"></object>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__pic">
+                <img class="footer__img" src="media/avatar-enot.jpg" alt="avatar">
+            </div>
+            <div class="footer__info">
+                <p class="footer__name">Vitaliy Kharlamov</p>
+                <p class="footer__position">Frontend developer</p>
+            </div>
+        </div>
+    </footer>
 
-    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="script/index.js"></script>
 </body>
 </html>
