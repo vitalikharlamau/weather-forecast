@@ -8,6 +8,7 @@ $textShadowGray: rgba(0, 0, 0, 0.25);
 $btnBackground: rgba(246, 238, 255, 0.65);
 $btnBackgroundHover: rgba(224, 196, 255, 0.65);
 $btnBackgroundActive: rgba(246, 238, 255, 0.65);
+$btnBackgroundDisabled: #FFFFFF;
 $inputBackground: rgba(255, 255, 255, 0.65);
 $inputBackgroundActive: #FFFFFF;
 $elementsBackground: rgba(246, 238, 255, 0.65);
@@ -158,6 +159,11 @@ $elementsShadow: rgba(0, 0, 0, 0.25);
         padding: 6px 13.5px;
         border-radius: 0 35px 35px 0;
         border-left: none;
+
+        &:disabled {
+            background-color: $btnBackgroundDisabled;
+            cursor: default;
+        }
     }
 
     &__img {
@@ -194,6 +200,7 @@ $elementsShadow: rgba(0, 0, 0, 0.25);
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 5px;
     }
 
     &__temperature {
@@ -201,6 +208,14 @@ $elementsShadow: rgba(0, 0, 0, 0.25);
         font-weight: 600;
         font-size: 128px;
         line-height: 156px;
+        margin-bottom: 8px;
+    }
+
+    &__discription {
+        color: $colorTextViolet;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
     }
 
     &__pic {
@@ -406,6 +421,12 @@ $elementsShadow: rgba(0, 0, 0, 0.25);
         &__temperature {
             font-size: 96px;
             line-height: 117px;
+            margin-bottom: 3px;
+        }
+    
+        &__discription {
+            font-size: 20px;
+            line-height: 24px;
         }
     
         &__pic {
@@ -522,6 +543,11 @@ $elementsShadow: rgba(0, 0, 0, 0.25);
         &__temperature {
             font-size: 64px;
             line-height: 78px;
+        }
+    
+        &__discription {
+            font-size: 16px;
+            line-height: 20px;
         }
     
         &__pic {

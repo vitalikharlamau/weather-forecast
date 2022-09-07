@@ -23,7 +23,7 @@
         <div class="container main__container">
             <div class="search">
                 <input class="search__input" stype="text" placeholder="Enter city or country name">
-                <button class="search__btn">
+                <button class="search__btn" disabled>
                     <object class="search__img" data="media/search-img.svg" type="image/svg+xml"></object>
                 </button>
             </div>
@@ -32,7 +32,10 @@
                 <article class="today">
                     <h2 class="today__title">Tuesday</h2>
                     <div class="today__block">
-                        <p class="today__temperature">22°</p>
+                        <div class="today__weather">
+                            <p class="today__temperature">22°</p>
+                            <p class="today__discription">rain with thunder</p>
+                        </div>
                         <div class="today__pic">
                             <object class="today__img" data="media/weather-tstorm.svg" type="image/svg+xml"></object>
                         </div>
@@ -101,6 +104,6 @@
         </div>
     </footer>
 
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./script/script.js"></script>
 </body>
 </html>

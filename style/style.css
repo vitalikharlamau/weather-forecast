@@ -116,6 +116,10 @@
 .search__btn:active {
   background-color: rgba(246, 238, 255, 0.65);
 }
+.search__btn:disabled {
+  background-color: #FFFFFF;
+  cursor: default;
+}
 .search__img {
   pointer-events: none;
 }
@@ -152,6 +156,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 .today__temperature {
   color: #FFFFFF;
@@ -159,6 +164,13 @@
   font-weight: 600;
   font-size: 128px;
   line-height: 156px;
+  margin-bottom: 8px;
+}
+.today__discription {
+  color: #510F4E;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
 }
 .today__pic {
   width: 200px;
@@ -347,6 +359,11 @@
   .today__temperature {
     font-size: 96px;
     line-height: 117px;
+    margin-bottom: 3px;
+  }
+  .today__discription {
+    font-size: 20px;
+    line-height: 24px;
   }
   .today__pic {
     width: 160px;
@@ -442,6 +459,10 @@
   .today__temperature {
     font-size: 64px;
     line-height: 78px;
+  }
+  .today__discription {
+    font-size: 16px;
+    line-height: 20px;
   }
   .today__pic {
     width: 90px;

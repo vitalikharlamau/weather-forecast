@@ -6,3 +6,6 @@ export const creatorAvatar = document.querySelector('.footer__img');
 export const creatorName = document.querySelector('.footer__name');
 export const creatorPosition = document.querySelector('.footer__position');
 export const creatorTwitter = document.querySelector('.footer__twitter');
+export const searchInput = document.querySelector('.search__input');
+export const searchBtn = document.querySelector('.search__btn');
+export const location = document.querySelector('.location');
