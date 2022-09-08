@@ -453,9 +453,6 @@
     font-size: 24px;
     line-height: 29px;
   }
-  .today__block {
-    justify-content: space-around;
-  }
   .today__temperature {
     font-size: 64px;
     line-height: 78px;

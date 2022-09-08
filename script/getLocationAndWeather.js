@@ -1,6 +1,6 @@
-import {searchInput, searchBtn, location} from './elements.js';
+import {searchInput, searchBtn, location, todayTemperature, todayDiscription, todayWindSpeed, todayHumidity, todayPressure} from './elements.js';
 import {connectOpenCageApi} from './connectOpenCageApi.js';
-import {connectOpenWeatherApi} from './connectOpenWeatherApi.js';
+import {getCurrentWeather, getNextdaysWeather} from './connectOpenWeatherApi.js';
 
 export function getLocationAndWeather() {
     searchInput.addEventListener('input', (event) => searchBtn.disabled = event.currentTarget.value === '');
@@ -14,7 +14,20 @@ export function getLocationAndWeather() {
 
         location.textContent = locationName;
 
-        const weatherInfo = await connectOpenWeatherApi(coordinates.lat, coordinates.lng)
-        console.log(weatherInfo);
+        const currentWeather = await getCurrentWeather(coordinates.lat, coordinates.lng);
+
+        console.log(currentWeather);
+
+        const {temp: temperature, humidity: humidity, pressure: pressure} = currentWeather.main;
+        const {description: description} = currentWeather.weather[0];
+        const {speed: windSpeed} = currentWeather.wind;
+
+        todayTemperature.textContent = `${Math.round(temperature)}°`;
+        todayDiscription.textContent = description;
+        todayWindSpeed.textContent = `${windSpeed}m/s`;
+        todayHumidity.textContent = `${humidity}%`;
+        todayPressure.textContent = `${pressure}mb`;
+
+        const nextdaysWeather = await getNextdaysWeather(coordinates.lat, coordinates.lng);
     });
 }
