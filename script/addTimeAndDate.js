@@ -19,7 +19,7 @@ export function addTimeAndDate() {
 
     clock.textContent = `${day} ${month} ${year}, ${time}`;
 
-    todayDate.textContent = weekday;
+    todayDate.textContent = `${weekday} Now`;
 
     nextDaysDate.forEach((element) => {
         now.setDate(now.getDate() + 1);

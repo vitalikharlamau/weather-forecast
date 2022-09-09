@@ -14,3 +14,4 @@ export const todayDiscription = document.querySelector('.today__discription');
 export const todayWindSpeed = document.getElementById('windSpeed');
 export const todayHumidity = document.getElementById('humidity');
 export const todayPressure = document.getElementById('pressure');
+export const nextDaysTemperature = document.querySelectorAll('.nextdays__temperature');
