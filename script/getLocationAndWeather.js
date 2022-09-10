@@ -1,4 +1,4 @@
-import {searchInput, searchBtn, location, todayTemperature, todayDiscription, todayWindSpeed, todayHumidity, todayPressure, nextDaysTemperature, clock} from './elements.js';
+import {searchInput, searchBtn, location, todayTemperature, todayDiscription, todayImg, todayWindSpeed, todayHumidity, todayPressure, nextDaysTemperature, nextDaysImg} from './elements.js';
 import {connectOpenCageApi} from './connectOpenCageApi.js';
 import {getNextDaysWeather, getTodayWeather} from './connectOpenWeatherApi.js';
 
@@ -23,11 +23,12 @@ export function getLocationAndWeather() {
         console.log(todayWeather);
 
         const {temp: temperature, humidity: humidity, pressure: pressure} = todayWeather.main;
-        const {description: description} = todayWeather.weather[0];
+        const {description: description, icon: imgName} = todayWeather.weather[0];
         const {speed: windSpeed} = todayWeather.wind;
 
         todayTemperature.textContent = `${Math.round(temperature)}°`;
         todayDiscription.textContent = description;
+        todayImg.data = `media/${imgName}.svg`;
         todayWindSpeed.textContent = `${windSpeed}m/s`;
         todayHumidity.textContent = `${humidity}%`;
         todayPressure.textContent = `${pressure}mb`;
@@ -54,7 +55,14 @@ export function getLocationAndWeather() {
 
         nextDaysTemperature.forEach((element, index) => {
             const {temp: dayTemperature} = filtredNextDaysWeather[index].main;
+
             element.textContent = `${Math.round(dayTemperature)}°`;
+        });
+
+        nextDaysImg.forEach((element, index) => {
+            const {icon: dayImgName} = filtredNextDaysWeather[index].weather[0];
+
+            element.data = `media/${dayImgName}.svg`;
         });
     });
 }
