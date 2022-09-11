@@ -1,7 +1,9 @@
 import {addTimeAndDate} from './addTimeAndDate.js';
-import {connectGithubApi} from './connectGithubApi.js';
-import {getLocationAndWeather} from './getLocationAndWeather.js';
+import {addEventListeners} from './addEventListeners.js';
+import {getCreatorData} from './getCreatorData.js';
+import {getBodyGradient} from './getBodyGradient.js';
 
 setInterval(addTimeAndDate, 1000);
-connectGithubApi();
-getLocationAndWeather();
+addEventListeners();
+getCreatorData();
+getBodyGradient();
