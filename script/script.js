@@ -1,9 +1,11 @@
 import {addTimeAndDate} from './addTimeAndDate.js';
 import {addEventListeners} from './addEventListeners.js';
-import {getCreatorData} from './getCreatorData.js';
-import {getBodyGradient} from './getBodyGradient.js';
+import {addCreatorData} from './addCreatorData.js';
+import {addBodyGradient} from './addBodyGradient.js';
+import {connectionLocalStorage} from './connectionLocalstorage.js';
 
 setInterval(addTimeAndDate, 1000);
+addCreatorData();
+addBodyGradient();
 addEventListeners();
-getCreatorData();
-getBodyGradient();
+connectionLocalStorage();

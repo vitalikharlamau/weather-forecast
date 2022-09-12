@@ -40,10 +40,10 @@ export function connectOpenCageApi(nameLocation) {
         });
 }
 
-const openWeatherApiKey = '84f0dd3a7854374ac1a26c6ac08ca872';
+const weatherBitApiKey = 'a1f7d3da80444dd6af4dd01392b16c1c';
 
 export function connectTodayWeather(lat, lng) {
-    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${openWeatherApiKey}&units=metric`)
+    return fetch(`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=${weatherBitApiKey}`)
         .then((response) => {
             if(response.ok) {
                 return response.json();
@@ -55,7 +55,7 @@ export function connectTodayWeather(lat, lng) {
 }
 
 export function connectNextDaysWeather(lat, lng) {
-    return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${openWeatherApiKey}&units=metric`)
+    return fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${weatherBitApiKey}&days=4`)
         .then((response) => {
             if(response.ok) {
                 return response.json();

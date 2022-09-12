@@ -1,7 +1,7 @@
 import {connectGithubApi} from './connectionAPIs.js';
 import {creatorGithub, creatorAvatar, creatorName, creatorPosition, creatorTwitter} from './elements.js';
 
-export async function getCreatorData() {
+export async function addCreatorData() {
     const creatorInfo = await connectGithubApi();
     const {html_url: url, avatar_url: avatar, name: name, login: login, bio: biography, twitter_username: twitter} = creatorInfo;
 
