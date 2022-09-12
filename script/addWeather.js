@@ -9,7 +9,7 @@ export async function addWeather(coordinates) {
 
     todayTemperature.textContent = `${Math.round(temperature)}°`;
     todayDiscription.textContent = description;
-    todayImg.data = `media/${imgName}.svg`;
+    todayImg.data = `media/weather-icons/${imgName}.svg`;
     todayWindSpeed.textContent = `${windSpeed.toFixed(2)}m/s`;
     todayHumidity.textContent = `${humidity.toFixed(1)}%`;
     todayPressure.textContent = `${Math.round(pressure)}mb`;
@@ -27,6 +27,6 @@ export async function addWeather(coordinates) {
     nextDaysImg.forEach((element, index) => {
         const { icon: dayImgName } = arrNextDaysWeather[index + 1].weather;
 
-        element.data = `media/${dayImgName}.svg`;
+        element.data = `media/weather-icons/${dayImgName}.svg`;
     });
 }

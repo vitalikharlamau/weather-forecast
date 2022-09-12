@@ -19,6 +19,16 @@ export function connectFlickrApi(tags) {
         .then((response) => {
             if(response.ok) {
                 return response.json();
+            } else {
+                return {
+                    photos: {
+                        photo: [
+                            {url_h: './media/background-1.jpg'},
+                            {url_h: './media/background-2.jpg'},
+                            {url_h: './media/background-3.jpg'}
+                        ]
+                    }
+                }
             }
         })
         .then((data) => {
@@ -33,6 +43,17 @@ export function connectOpenCageApi(nameLocation) {
         .then((response) => {
             if(response.ok) {
                 return response.json();
+            } else {
+                alert('Request failed');
+                return {
+                    results: [{
+                            formatted: 'Salihorsk, Salihorsk District, Belarus',
+                            geometry: {
+                                lat: 52.7893039,
+                                lng: 27.5318168
+                            }
+                        }]
+                }
             }
         })
         .then((data) => {
