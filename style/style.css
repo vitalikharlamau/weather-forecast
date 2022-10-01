@@ -78,7 +78,13 @@
 .header__btn:active {
   background-color: rgba(246, 238, 255, 0.65);
 }
+.header__btn:disabled {
+  background-color: #FFFFFF;
+  cursor: default;
+}
 .header__img {
+  width: 28px;
+  height: 36px;
   pointer-events: none;
 }
 
@@ -132,6 +138,8 @@
   cursor: default;
 }
 .search__img {
+  width: 36px;
+  height: 36px;
   pointer-events: none;
 }
 
@@ -141,7 +149,10 @@
   font-weight: 800;
   font-size: 62px;
   line-height: 76px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .weather {

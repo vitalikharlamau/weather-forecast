@@ -7,6 +7,8 @@ export function addEventListeners() {
     let i = 0;
 
     backgroundBtn.addEventListener('click', async () => {
+        backgroundBtn.disabled = true;
+
         const backgroundImg = await connectFlickrApi(tags);
         const {photo: images} = backgroundImg.photos;
 
@@ -16,12 +18,14 @@ export function addEventListeners() {
 
         img.addEventListener('load', () => {
             body.style.backgroundImage = `url(${images[i].url_h})`;
-            i++;
+            i = (i + 1) % images.length;
+            backgroundBtn.disabled = false;
         });
 
         img.addEventListener('error', () => {
             body.style.backgroundImage = 'url(media/image-background.jpg)';
-            i++;
+            i = (i + 1) % images.length;
+            backgroundBtn.disabled = false;
         });
     });
 

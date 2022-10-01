@@ -68,6 +68,9 @@ export function connectTodayWeather(lat, lng) {
         .then((response) => {
             if(response.ok) {
                 return response.json();
+            } else {
+                alert('Request failed');
+                return;
             }
         })
         .then((data) => {
@@ -80,6 +83,9 @@ export function connectNextDaysWeather(lat, lng) {
         .then((response) => {
             if(response.ok) {
                 return response.json();
+            } else {
+                alert('Request failed');
+                return;
             }
         })
         .then((data) => {

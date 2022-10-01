@@ -4,8 +4,8 @@ import {connectTodayWeather, connectNextDaysWeather} from './connectionAPIs.js';
 export async function addWeather(coordinates) {
     const todayWeather = await connectTodayWeather(coordinates.lat, coordinates.lng);
 
-    const { temp: temperature, rh: humidity, pres: pressure, wind_spd: windSpeed } = todayWeather.data[0];
-    const { description: description, icon: imgName } = todayWeather.data[0].weather;
+    const { weather, temp: temperature, rh: humidity, pres: pressure, wind_spd: windSpeed } = todayWeather.data[0];
+    const { description: description, icon: imgName } = weather;
 
     todayTemperature.textContent = `${Math.round(temperature)}°`;
     todayDiscription.textContent = description;
