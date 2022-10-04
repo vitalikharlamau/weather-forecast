@@ -61,7 +61,7 @@ export function connectOpenCageApi(nameLocation) {
         });
 }
 
-const weatherBitApiKey = 'a1f7d3da80444dd6af4dd01392b16c1c';
+const weatherBitApiKey = 'a740c651ec2045a883ee4db242f29d68';
 
 export function connectTodayWeather(lat, lng) {
     return fetch(`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&key=${weatherBitApiKey}`)
