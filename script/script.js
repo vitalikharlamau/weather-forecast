@@ -2,7 +2,7 @@ import {addTimeAndDate} from './addTimeAndDate.js';
 import {addEventListeners} from './addEventListeners.js';
 import {addCreatorData} from './addCreatorData.js';
 import {addBodyGradient} from './addBodyGradient.js';
-import {connectLocalStorage} from './connectionLocalstorage.js';
+import {connectLocalStorage} from './connectionLocalStorage.js';
 
 addTimeAndDate();
 setInterval(addTimeAndDate, 1000);
